@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Par o Impar</title>
+</head>
+<body>
+  <h1>Determinar si un número es par o impar</h1>
+  <script>
+    // Solicitar al usuario que ingrese un número
+    let numero = prompt("Por favor, ingresa un número:");
+
+    // Convertir la entrada del usuario a un número
+    numero = Number(numero);
+
+    // Verificar si la conversión fue exitosa
+    if (isNaN(numero)) {
+      console.log("Por favor, ingresa un valor numérico válido.");
+    } else {
+      // Determinar si el número es par o impar
+      if (numero % 2 === 0) {
+        console.log("El número " + numero + " es par.");
+      } else {
+        console.log("El número " + numero + " es impar.");
+      }
+    }
+  </script>
+</body>
+</html>

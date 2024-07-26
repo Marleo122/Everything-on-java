@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menú de Operaciones</title>
+</head>
+<body>
+    <h1>Menú de Operaciones</h1>
+    <label for="num1">Ingrese el primer número:</label>
+    <input type="number" id="num1"><br><br>
+
+    <label for="num2">Ingrese el segundo número:</label>
+    <input type="number" id="num2"><br><br>
+
+    <button onclick="sumar()">Sumar</button>
+    <button onclick="restar()">Restar</button>
+    <button onclick="salir()">Salir</button>
+
+    <h2>Resultado:</h2>
+    <p id="resultado"></p>
+
+    <script>
+        function sumar() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let resultado = num1 + num2;
+            document.getElementById('resultado').innerText = 'La suma es: ' + resultado;
+        }
+
+        function restar() {
+            let num1 = parseFloat(document.getElementById('num1').value);
+            let num2 = parseFloat(document.getElementById('num2').value);
+            let resultado = num1 - num2;
+            document.getElementById('resultado').innerText = 'La resta es: ' + resultado;
+        }
+
+        function salir() {
+            document.getElementById('resultado').innerText = 'Gracias por usar el programa. ¡Adiós crack ;)!';
+        }
+    </script>
+</body>
+</html>

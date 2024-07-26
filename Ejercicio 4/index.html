@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Determinar Mayoría de Edad</title>
+</head>
+<body>
+    <script>
+        // Solicita la edad del usuario
+        let edad = prompt("Por favor, introduce tu edad:");
+
+        // Convierte la entrada en un número
+        edad = parseInt(edad);
+
+        // Verifica si la entrada es un número válido
+        if (isNaN(edad)) {
+            console.log("Por favor, introduce un número válido.");
+        } else {
+            // Determina si el usuario es mayor o menor de edad
+            if (edad >= 18) {
+                console.log("Eres mayor de edad.");
+            } else {
+                console.log("Eres menor de edad.");
+            }
+        }
+    </script>
+</body>
+</html>

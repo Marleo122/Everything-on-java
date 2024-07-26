@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <label for="username">Usuario:</label>
+        <input type="text" id="username" required>
+        <br>
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" required>
+        <br>
+        <button type="submit">Ingresar</button>
+    </form>
+    <p id="message"></p>
+
+    <script>
+        // Usuario y contraseña definidos por el programador
+        const validUsername = "admin";
+        const validPassword = "666";
+
+        // Selecciona el formulario y el mensaje
+        const loginForm = document.getElementById('loginForm');
+        const message = document.getElementById('message');
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            // Obtiene los valores ingresados por el usuario
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Verifica si los datos ingresados son correctos
+            if (username === validUsername && password === validPassword) {
+                message.textContent = "Login exitoso!";
+                message.style.color = "green";
+                // Aquí puedes redirigir al usuario a otra página o realizar alguna acción
+            } else {
+                message.textContent = "Usuario o contraseña incorrectos.";
+                message.style.color = "red";
+            }
+        });
+    </script>
+</body>
+</html>
