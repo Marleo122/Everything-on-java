@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actividad de Programación</title>
+    <style>
+        .container {
+            margin: 20px;
+        }
+        .matrix, .board {
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        td, th {
+            border: 1px solid black;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Programa 1: Matriz de 5 por 4</h2>
+        <div>
+            <label for="numberInput">Ingrese 20 números separados por comas:</label>
+            <input type="text" id="numberInput" placeholder="Ejemplo: 1,2,3,4,...,20">
+            <button onclick="generarMatriz()">Generar Matriz</button>
+        </div>
+        <div class="matrix">
+            <table id="matrixTable"></table>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Programa 2: Tablero de 8x8</h2>
+        <button onclick="mostrarTablero()">Mostrar Tablero</button>
+        <div class="board">
+            <table id="boardTable"></table>
+        </div>
+    </div>
+
+    <script>
+        function generarMatriz() {
+            const input = document.getElementById('numberInput').value;
+            const numeros = input.split(',').map(Number);
+            if (numeros.length !== 20) {
+                alert('Por favor, ingrese exactamente 20 números.');
+                return;
+            }
+
+            let tableContent = '';
+            for (let i = 0; i < 5; i++) {
+                tableContent += '<tr>';
+                for (let j = 0; j < 4; j++) {
+                    tableContent += `<td>${numeros[i * 4 + j]}</td>`;
+                }
+                tableContent += '</tr>';
+            }
+            document.getElementById('matrixTable').innerHTML = tableContent;
+        }
+
+        function mostrarTablero() {
+            let tablero = [];
+            let contador = 1;
+            for (let i = 0; i < 8; i++) {
+                let fila = [];
+                for (let j = 0; j < 8; j++) {
+                    fila.push(contador++);
+                }
+                tablero.push(fila);
+            }
+
+            let marcas = [
+                [0, 4], [0, 5],
+                [1, 0], [1, 7],
+                [3, 6],
+                [4, 3]
+            ];
+
+            function tieneMarca(fila, col) {
+                for (let i = 0; i < marcas.length; i++) {
+                    if (marcas[i][0] === fila && marcas[i][1] === col) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            let tableContent = '<tr>';
+            for (let i = 0; i < 8; i++) {
+                for (let j = 0; j < 8; j++) {
+                    tableContent += `<td>${tablero[i][j]}</td>`;
+                }
+                tableContent += '</tr><tr>';
+                for (let j = 0; j < 8; j++) {
+                    if (tieneMarca(i, j)) {
+                        tableContent += '<td>#</td>';
+                    } else {
+                        tableContent += '<td></td>';
+                    }
+                }
+                tableContent += '</tr>';
+            }
+            document.getElementById('boardTable').innerHTML = tableContent;
+        }
+    </script>
+</body>
+</html>
